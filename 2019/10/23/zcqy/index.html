@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="Chinese">
+<head>
+    <head>  
+  <!-- Title -->
+  
+  <meta charset="utf-8">
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, viewport-fit=cover" >
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="author" content="-��ĳ" />
+  <meta name="designer" content="-��ĳ" />
+  <meta name="keywords" content="zcqy,-�������ſƼ����޹�˾," />
+  <meta property="og:title" content="zcqy | -�������ſƼ����޹�˾" />
+  <meta property="og:site_name" content="http://yoursite.com" />
+  
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="http://yoursite.com/2019/10/23/zcqy/" />
+    <meta property="og:image" content="http://yoursite.comimages/default_cover.jpg" />
+    <meta property="og:description" content="zcqy--" />
+    <meta name="description" content="zcqy--" />
+  
+  <meta name="rating" content="general" /> 
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="format-detection" content="telephone=yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" href="/images/favicon.ico">
+  <title>zcqy | -�������ſƼ����޹�˾</title>
+  <link rel="stylesheet" href="/css/f25.css">
+  <link rel="stylesheet" href="/css/highlight.css">
+  
+  
+</head>
+</head>
+<body>
+    <header class="wrapper header-wrapper">
+    <div class="container header-nav-wrapper">
+        <div class="logo"><a href="/" title="-�������ſƼ����޹�˾"><h1 class="title">Jin</h1></a></div>
+        <nav class="nav-wrapper">
+            
+        </nav>
+        <span class="btn-menu" id="J_header_menu">
+            <div class="inner">
+                <span class="line line-01"></span>
+                <span class="line line-02"></span>
+                <span class="line line-03"></span>
+            </div>
+        </span>
+        <div class="wrapper mb-nav-wrapper" id="J_header_menu_list">
+            <nav class="wrapper mb-nav-container">
+                
+            </nav>
+        </div>
+    </div>
+</header>
+    <section class="body-wrapper">
+        <section class="wrapper post-banner">
+    <div class="container post-banner-container">
+        <h2 class="wrapper title">zcqy</h2>
+        <div class="wrapper tips">
+            <span>Author：</span><span>-��ĳ</span> | <span>Date: </span><span>2019-10-23</span> | <span>Category：</span><span></span>
+        </div>
+    </div>
+</section>
+<section class="wrapper main-wrapper">
+    <article class="sub-container post-content">
+        <h1 id="Git常用操作命令收集："><a href="#Git常用操作命令收集：" class="headerlink" title="Git常用操作命令收集："></a>Git常用操作命令收集：</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">1. 远程仓库相关命令  </span><br><span class="line">检出仓库：$ git clone git://github.com/jquery/jquery.git  </span><br><span class="line">查看远程仓库：$ git remote -v  </span><br><span class="line">添加远程仓库：$ git remote add [name] [url]  </span><br><span class="line">删除远程仓库：$ git remote rm [name]  </span><br><span class="line">修改远程仓库：$ git remote set-url --push[name][newUrl]  </span><br><span class="line">拉取远程仓库：$ git pull [remoteName] [localBranchName]  </span><br><span class="line">推送远程仓库：$ git push [remoteName] [localBranchName]  </span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">2.分支(branch)操作相关命令</span><br><span class="line">查看本地分支：$ git branch</span><br><span class="line">查看远程分支：$ git branch -r</span><br><span class="line">创建本地分支：$ git branch [name] ----注意新分支创建后不会自动切换为当前分支</span><br><span class="line">切换分支：$ git checkout [name]</span><br><span class="line">创建新分支并立即切换到新分支：$ git checkout -b [name]</span><br><span class="line">删除分支：$ git branch -d [name] ---- -d选项只能删除已经参与了合并的分支，对于未有合并的分支是无法删除的。如果想强制删除一个分支，可以使用-D选项</span><br><span class="line">合并分支：$ git merge [name] ----将名称为[name]的分支与当前分支合并</span><br><span class="line">创建远程分支(本地分支push到远程)：$ git push origin [name]</span><br><span class="line">删除远程分支：$ git push origin :heads/[name]  </span><br><span class="line"> </span><br><span class="line">3.配置密钥  </span><br><span class="line">$ ssh-keygen -t rsa -C &quot;xxxxxxxxx@pp.com&quot; </span><br><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+
+    </article>
+    <div class="sub-container gitalk-wrapper" id="gitalk-container"></div>
+</section>
+        
+<div class="tips-top-wrapper">
+    <span class="tip-top-container" onclick="scrollToWindowTop()">
+        <span class="l-bar"></span>
+        <span class="r-bar"></span>
+    </span>
+</div>
+<footer class="wrapper footer-wrapper">
+    <div class="container"><span class="copyright">&copy; 2019 . All Rights Reserved.</span></div>
+</footer>
+    </section>
+    <script src="/js/f25.js"></script>
+    
+</body>
+</html>
