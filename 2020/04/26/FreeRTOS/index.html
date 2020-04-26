@@ -83,7 +83,7 @@ TaskHandle_t * const pxCreatedTask )任务句柄    </code></pre></blockquote>
 </li>
 <li>静态任务创建：    <blockquote>
 <p>获取空闲任务地任务堆栈和任务控制块内存：vApplicationGetIdleTaskMemory(StaticTask_t **ppxIdleTaskTCBBuffer,  任务控制块内存</p>
-<pre><code>   StackType_t **ppxIdleTaskStackBuffer, 任务堆栈内存
+<pre><code>StackType_t **ppxIdleTaskStackBuffer, 任务堆栈内存
 uint32_t *pulIdleTaskStackSize)       任务堆栈大小</code></pre><p>获取定时器服务任务的任务堆栈和任务控制块内存：vApplicationGetIdleTaskMemory(StaticTask_t **ppxIdleTaskTCBBuffer,  任务控制块内存</p>
 <pre><code>StackType_t **ppxIdleTaskStackBuffer, 任务堆栈内存
 uint32_t *pulIdleTaskStackSize)       任务堆栈大小</code></pre><p>TaskHandle_t xTaskCreateStatic(TaskFunction_t pxTaskCode,          任务函数</p>
