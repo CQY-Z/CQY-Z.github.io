@@ -95,8 +95,6 @@ function activateLightMode(){
 </blockquote>
 </blockquote>
 </blockquote>
-</li>
-</ul>
 <ol>
 <li>ios::out 写 文件不存在 则建立新文件 文件存在则直接清空文件内容。</li>
 <li>ios::in 读 文件不存在 就无法打开。</li>
@@ -104,7 +102,7 @@ function activateLightMode(){
 <li>ios::in |ios::app 读追加 文件不存在 就无法打开。</li>
 <li>ios::out|ios::app 写追加 文件不存在 则建立新文件 文件存在则保留内容继续在末尾追加。打开文件后 文件指针 在开始处，一旦即将写 文件指针移到 文件末尾开始完成写操作。</li>
 </ol>
-<ul>
+</li>
 <li>close():关闭文件和清除缓存区</li>
 </ul>
 </li>
