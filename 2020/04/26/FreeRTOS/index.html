@@ -88,13 +88,15 @@ TaskHandle_t * const pxCreatedTask )任务句柄    </code></pre></blockquote>
                               uint32_t *pulIdleTaskStackSize)       任务堆栈大小</code></pre><p>获取定时器服务任务的任务堆栈和任务控制块内存：</p>
 <pre><code>vApplicationGetIdleTaskMemory(StaticTask_t **ppxIdleTaskTCBBuffer,  任务控制块内存
                               StackType_t **ppxIdleTaskStackBuffer, 任务堆栈内存
-                              uint32_t *pulIdleTaskStackSize)       任务堆栈大小</code></pre><p>TaskHandle_t xTaskCreateStatic(TaskFunction_t pxTaskCode,          任务函数</p>
-<pre><code>const char * const pcName,          任务名称
-const uint32_t ulStackDepth,        任务堆栈大小
-void * const pvParameters,          传递给任务函数的参数
-UBaseType_t uxPriority,             任务优先级
-StackType_t * const puxStackBuffer, 任务堆栈
-StaticTask_t * const pxTaskBuffer ) 任务控制 </code></pre></blockquote>
+                              uint32_t *pulIdleTaskStackSize)       任务堆栈大小
+
+TaskHandle_t xTaskCreateStatic(TaskFunction_t pxTaskCode,          任务函数
+                               const char * const pcName,          任务名称
+                               const uint32_t ulStackDepth,        任务堆栈大小
+                               void * const pvParameters,          传递给任务函数的参数
+                               UBaseType_t uxPriority,             任务优先级
+                               StackType_t * const puxStackBuffer, 任务堆栈
+                               StaticTask_t * const pxTaskBuffer ) 任务控制 </code></pre></blockquote>
 <ul>
 <li>PS：使用静态任务时要将 configSUPPORT_STATIC_ALLOCATION 设为 1     </li>
 <li>动态和静态创建任务的区别：静态任务需要用户来提供空闲任务的任务堆栈和任务控制块的内存和定时器服务任务的任务堆栈和任务控制块内存（静态内存），而动态任务由系统提供</li>
@@ -114,21 +116,21 @@ StaticTask_t * const pxTaskBuffer ) 任务控制 </code></pre></blockquote>
 <li>插入列表项：vListInsert( List_t * const pxList, ListItem_t * const pxNewListItem )</li>
 <li>删除列表项：uxListRemove( ListItem_t * const pxItemToRemove )</li>
 <li>列表末尾添加列表项：vListInsertEnd( List_t * const pxList, ListItem_t * const pxNewListItem )<h1 id="FreeRTOS任务状态或信息查询以及任务运行时间统计"><a href="#FreeRTOS任务状态或信息查询以及任务运行时间统计" class="headerlink" title="FreeRTOS任务状态或信息查询以及任务运行时间统计"></a>FreeRTOS任务状态或信息查询以及任务运行时间统计</h1><blockquote>
-<p><a href="https://cdn.jsdelivr.net/gh/CQY-Z/BLOG_PICTURE@v0.0.5/API.png" target="_blank" rel="noopener" data-fancybox="group" data-caption=" " class="fancybox"><img alt=" " title=" " data-src="https://cdn.jsdelivr.net/gh/CQY-Z/BLOG_PICTURE@v0.0.5/API.png" class="lazyload"></a></p>
+<p><a href="https://cdn.jsdelivr.net/gh/CQY-Z/BLOG_PICTURE@v0.0.5/API.png" target="_blank" rel="noopener" data-fancybox="group" data-caption=" " class="fancybox"><img alt=" " data-src="https://cdn.jsdelivr.net/gh/CQY-Z/BLOG_PICTURE@v0.0.5/API.png" class="lazyload" title=" "></a></p>
 </blockquote>
 </li>
 <li>获取系统中任务状态步骤：<ul>
 <li>获取系统任务数量: uxTaskGetNumberOfTasks()    </li>
 <li>申请内存：*pvPortMalloc( size_t xWantedSize )</li>
-<li>获取系统中任务状态：uxTaskGetSystemState(TaskStatus_t * const pxTaskStatusArray, 任务信息存储数组<pre><code>const UBaseType_t uxArraySize,          任务信息存储数组大小
+<li>获取系统中任务状态：<br>uxTaskGetSystemState(TaskStatus_t * const pxTaskStatusArray, 任务信息存储数组<pre><code>const UBaseType_t uxArraySize,          任务信息存储数组大小
 uint32_t * const pulTotalRunTime )      保存系统总的运行时间</code></pre></li>
 <li>释放内存：vPortFree( void *pv )</li>
 </ul>
 </li>
 <li>获取某个任务信息步骤：<ul>
 <li>根据任务名获取任务句柄：xTaskGetHandle( const char *pcNameToQuery )</li>
-<li>获取任务信息：vTaskGetInfo( TaskHandle_t xTask,            任务句柄<pre><code>   TaskStatus_t *pxTaskStatus,    任务信息结构体
-  BaseType_t xGetFreeStackSpace, 允许统计任务堆栈历史最小剩余大小
+<li>获取任务信息：<br>vTaskGetInfo( TaskHandle_t xTask,            任务句柄<pre><code> TaskStatus_t *pxTaskStatus,    任务信息结构体
+BaseType_t xGetFreeStackSpace, 允许统计任务堆栈历史最小剩余大小
 eTaskState eState )            函数自己获取任务运行壮态</code></pre></li>
 </ul>
 </li>
@@ -141,7 +143,7 @@ eTaskState eState )            函数自己获取任务运行壮态</code></pre>
 <li>宏定义 portCONFIGURE_TIMER_FOR_RUN_TIME_STATS(),此宏用来初始化一个外设来提供时间统计功能所需的时基，一般是定时器/计数器。这个时基的分辨率一定要比FreeRTOS的系统时钟高，一般时钟精度比系统时钟的高10~20倍</li>
 <li>portGET_RUN_TIME_COUNTER_VALUE()或者portALT_GET_RUN_TIME_COUNTER_VALUE(Time)；二选一，用于提供当前的时基的时间值。</li>
 <li>获取任务运行时间信息：vTaskGetRunTimeStats( char *pcWriteBuffer )<h1 id="FreeRTOS内核控制函数"><a href="#FreeRTOS内核控制函数" class="headerlink" title="FreeRTOS内核控制函数"></a>FreeRTOS内核控制函数</h1><blockquote>
-<p><a href="https://cdn.jsdelivr.net/gh/CQY-Z/BLOG_PICTURE@v0.0.5.1/KEINAL.png" target="_blank" rel="noopener" data-fancybox="group" data-caption=" " class="fancybox"><img alt=" " title=" " data-src="https://cdn.jsdelivr.net/gh/CQY-Z/BLOG_PICTURE@v0.0.5.1/KEINAL.png" class="lazyload"></a></p>
+<p><a href="https://cdn.jsdelivr.net/gh/CQY-Z/BLOG_PICTURE@v0.0.5.1/KEINAL.png" target="_blank" rel="noopener" data-fancybox="group" data-caption=" " class="fancybox"><img alt=" " data-src="https://cdn.jsdelivr.net/gh/CQY-Z/BLOG_PICTURE@v0.0.5.1/KEINAL.png" class="lazyload" title=" "></a></p>
 </blockquote>
 </li>
 </ul>
