@@ -128,7 +128,7 @@ uint32_t *pulIdleTaskStackSize)       任务堆栈大小</code></pre><p>获取�
 </li>
 <li><p>列表末尾添加列表项：vListInsertEnd( List_t * const pxList, ListItem_t * const pxNewListItem )</p>
 <h1 id="FreeRTOS任务状态或信息查询以及任务运行时间统计"><a href="#FreeRTOS任务状态或信息查询以及任务运行时间统计" class="headerlink" title="FreeRTOS任务状态或信息查询以及任务运行时间统计"></a>FreeRTOS任务状态或信息查询以及任务运行时间统计</h1><blockquote>
-<p><a href="https://cdn.jsdelivr.net/gh/CQY-Z/BLOG_PICTURE@v0.0.5/API.png" target="_blank" rel="noopener" data-fancybox="group" data-caption=" " class="fancybox"><img alt=" " data-src="https://cdn.jsdelivr.net/gh/CQY-Z/BLOG_PICTURE@v0.0.5/API.png" class="lazyload" title=" "></a></p>
+<p><a href="https://cdn.jsdelivr.net/gh/CQY-Z/BLOG_PICTURE@v0.0.5/API.png" target="_blank" rel="noopener" data-fancybox="group" data-caption=" " class="fancybox"><img alt=" " title=" " data-src="https://cdn.jsdelivr.net/gh/CQY-Z/BLOG_PICTURE@v0.0.5/API.png" class="lazyload"></a></p>
 </blockquote>
 </li>
 <li><p>获取系统中任务状态步骤：</p>
@@ -151,7 +151,7 @@ uint32_t *pulIdleTaskStackSize)       任务堆栈大小</code></pre><p>获取�
 </li>
 <li><p>获取任务信息：   </p>
 <pre><code>vTaskGetInfo( TaskHandle_t xTask,            任务句柄
-                 TaskStatus_t *pxTaskStatus,    任务信息结构体
+                TaskStatus_t *pxTaskStatus,    任务信息结构体
                 BaseType_t xGetFreeStackSpace, 允许统计任务堆栈历史最小剩余大小
                 eTaskState eState )            函数自己获取任务运行壮态</code></pre></li>
 </ul>
@@ -167,7 +167,7 @@ uint32_t *pulIdleTaskStackSize)       任务堆栈大小</code></pre><p>获取�
 <li>宏定义 portCONFIGURE_TIMER_FOR_RUN_TIME_STATS(),此宏用来初始化一个外设来提供时间统计功能所需的时基，一般是定时器/计数器。这个时基的分辨率一定要比FreeRTOS的系统时钟高，一般时钟精度比系统时钟的高10~20倍</li>
 <li>portGET_RUN_TIME_COUNTER_VALUE()或者portALT_GET_RUN_TIME_COUNTER_VALUE(Time)；二选一，用于提供当前的时基的时间值。</li>
 <li>获取任务运行时间信息：vTaskGetRunTimeStats( char *pcWriteBuffer )<h1 id="FreeRTOS内核控制函数"><a href="#FreeRTOS内核控制函数" class="headerlink" title="FreeRTOS内核控制函数"></a>FreeRTOS内核控制函数</h1><blockquote>
-<p><a href="https://cdn.jsdelivr.net/gh/CQY-Z/BLOG_PICTURE@v0.0.5.1/KEINAL.png" target="_blank" rel="noopener" data-fancybox="group" data-caption=" " class="fancybox"><img alt=" " data-src="https://cdn.jsdelivr.net/gh/CQY-Z/BLOG_PICTURE@v0.0.5.1/KEINAL.png" class="lazyload" title=" "></a></p>
+<p><a href="https://cdn.jsdelivr.net/gh/CQY-Z/BLOG_PICTURE@v0.0.5.1/KEINAL.png" target="_blank" rel="noopener" data-fancybox="group" data-caption=" " class="fancybox"><img alt=" " title=" " data-src="https://cdn.jsdelivr.net/gh/CQY-Z/BLOG_PICTURE@v0.0.5.1/KEINAL.png" class="lazyload"></a></p>
 </blockquote>
 </li>
 </ul>
