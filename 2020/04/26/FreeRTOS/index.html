@@ -74,8 +74,8 @@ function activateLightMode(){
 </ol>
 <ul>
 <li>动态任务创建：    <blockquote>
-<p>BaseType_t xTaskCreate(    TaskFunction_t pxTaskCode,          任务函数    </p>
-<pre><code>const char * const pcName,          任务名称    
+<pre><code>BaseType_t xTaskCreate(    TaskFunction_t pxTaskCode,          任务函数    
+const char * const pcName,          任务名称    
 const uint16_t usStackDepth,        任务堆栈大小
 void * const pvParameters,          传递给任务函数的参数    
 UBaseType_t uxPriority,             任务优先级    
@@ -84,13 +84,13 @@ TaskHandle_t * const pxCreatedTask )任务句柄    </code></pre></blockquote>
 <li>静态任务创建：    <blockquote>
 <p>获取空闲任务地任务堆栈和任务控制块内存：</p>
 <pre><code>vApplicationGetIdleTaskMemory(StaticTask_t **ppxIdleTaskTCBBuffer,  任务控制块内存
-                              StackType_t **ppxIdleTaskStackBuffer, 任务堆栈内存
-                              uint32_t *pulIdleTaskStackSize)       任务堆栈大小</code></pre><p>获取定时器服务任务的任务堆栈和任务控制块内存：</p>
+StackType_t **ppxIdleTaskStackBuffer, 任务堆栈内存
+uint32_t *pulIdleTaskStackSize)       任务堆栈大小</code></pre><p>获取定时器服务任务的任务堆栈和任务控制块内存：</p>
 <pre><code>vApplicationGetIdleTaskMemory(StaticTask_t **ppxIdleTaskTCBBuffer,  任务控制块内存
                               StackType_t **ppxIdleTaskStackBuffer, 任务堆栈内存
                               uint32_t *pulIdleTaskStackSize)       任务堆栈大小
 
-TaskHandle_t xTaskCreateStatic(TaskFunction_t pxTaskCode,          任务函数
+                               TaskHandle_t xTaskCreateStatic(TaskFunction_t pxTaskCode,          任务函数
                                const char * const pcName,          任务名称
                                const uint32_t ulStackDepth,        任务堆栈大小
                                void * const pvParameters,          传递给任务函数的参数
@@ -122,16 +122,18 @@ TaskHandle_t xTaskCreateStatic(TaskFunction_t pxTaskCode,          任务函数
 <li>获取系统中任务状态步骤：<ul>
 <li>获取系统任务数量: uxTaskGetNumberOfTasks()    </li>
 <li>申请内存：*pvPortMalloc( size_t xWantedSize )</li>
-<li>获取系统中任务状态：<br>uxTaskGetSystemState(TaskStatus_t * const pxTaskStatusArray, 任务信息存储数组<pre><code>const UBaseType_t uxArraySize,          任务信息存储数组大小
-uint32_t * const pulTotalRunTime )      保存系统总的运行时间</code></pre></li>
+<li>获取系统中任务状态：<pre><code>uxTaskGetSystemState(TaskStatus_t * const pxTaskStatusArray, 任务信息存储数组
+                      const UBaseType_t uxArraySize,          任务信息存储数组大小
+                      uint32_t * const pulTotalRunTime )      保存系统总的运行时间</code></pre></li>
 <li>释放内存：vPortFree( void *pv )</li>
 </ul>
 </li>
 <li>获取某个任务信息步骤：<ul>
 <li>根据任务名获取任务句柄：xTaskGetHandle( const char *pcNameToQuery )</li>
-<li>获取任务信息：<br>vTaskGetInfo( TaskHandle_t xTask,            任务句柄<pre><code> TaskStatus_t *pxTaskStatus,    任务信息结构体
-BaseType_t xGetFreeStackSpace, 允许统计任务堆栈历史最小剩余大小
-eTaskState eState )            函数自己获取任务运行壮态</code></pre></li>
+<li>获取任务信息：<pre><code>vTaskGetInfo( TaskHandle_t xTask,            任务句柄
+                 TaskStatus_t *pxTaskStatus,    任务信息结构体
+                BaseType_t xGetFreeStackSpace, 允许统计任务堆栈历史最小剩余大小
+                eTaskState eState )            函数自己获取任务运行壮态</code></pre></li>
 </ul>
 </li>
 <li>获取某个任务的状态步骤：<ul>
